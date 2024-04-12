@@ -19,6 +19,6 @@ abstract class Shape {
   //Methods
   abstract void draw(); //Empty draw()
   //
-  abstract color backgroundColour(); //End Night Mode Colour Selector
+  //abstract color backgroundColour(); //End Night Mode Colour Selector
   //
 } //End Shape

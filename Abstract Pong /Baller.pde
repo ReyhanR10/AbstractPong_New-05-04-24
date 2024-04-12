@@ -15,8 +15,10 @@ class Baller extends Circle {
   } //End NightMode
   //
   void move () {
-    //Students to Finish 
-    
+    //Students tto Finish
+
     //Bounce Off top and Bottom, paddles will be later on
-  } //End Move Ball
- //End
+  }
+  //End Move Ball
+  //End
+}

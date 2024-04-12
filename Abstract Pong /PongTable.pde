@@ -3,11 +3,15 @@ abstract class PongTable extends Rectangle {
   //
   PongTable (float x, float y, float w, float h, color c) {
     super(x, y, w, h, c);
-    
   } //End PongTable
   //
   //Methods
-  abstract void draw();
+  void draw () {
+    fill ( c ) ;
+    rect ( x, y, w, h ) ;
+    fill ( 0 ) ;
+  }
+  // abstract void draw();
   //
   /* Features:
    - Give Ball top and bottom lines to bounce off of
