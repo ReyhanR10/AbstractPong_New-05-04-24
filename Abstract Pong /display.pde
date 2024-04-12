@@ -21,7 +21,7 @@ void display() {
   //println(width, height, displayWidth, displayHeight);
   appWidth = width; //Best Practice: do not manipulate key variables
   appHeight = height;
-  displayCheck();
+  displayCheck() ; 
   textSetup(); //See Below
   if ( displayCheck==true ) song1.loop(0);
 } //End Display Method
