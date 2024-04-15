@@ -42,19 +42,19 @@ abstract class Paddle extends Rectangle {
     }
   }
    void tableUpdate(float tablexParameter, float tableyParameter, float tablewParameter, float tablehParameter) {
-    tablex = tablexParameter;
-    tabley = tableyParameter;
-    tablew = tablewParameter;
-    tableh = tablehParameter;
+    tableX = tablexParameter;
+    tableY = tableyParameter;
+    tableWidth = tablewParameter;
+    tableHeight = tablehParameter;
   }
 
   void keyPressedWASD() {
     if (key == 'w' || key == 'W') {
       down = false;
-      up = true;
+      top = true;
     }
     if ( key == 's' || key == 'S') {
-      up = false;
+      top = false;
       down = true;
     }
   }
@@ -62,10 +62,28 @@ abstract class Paddle extends Rectangle {
   void keyPressedARROW() {
     if (key == CODED && keyCode == UP) {
       down = false;
-      up = true;
+      top = true;
     }
     if (key == CODED && keyCode == DOWN) {
-      up = false;
+      top = false;
       down = true;
+    }
+  }
+}
+void keyReleasedWASD() {
+    if (key == 'w' || key == 'W') {
+      top = false ;
+    }
+    if (key == 's' || key == 'S') {
+      down = false;
+    }
+  }
+
+  void keyReleasedARROW() {
+    if (key == CODED && keyCode == UP) {
+      top = false;
+    }
+    if (key == CODED && keyCode == DOWN) {
+      down = false;
     }
   }

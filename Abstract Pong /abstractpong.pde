@@ -8,10 +8,13 @@ import ddf.minim.ugens.*;
 //Global Variables
 PongTable PongTable ;
 Baller Baller ;
+Fireworks[] fireworks = new Fireworks[25]; //Fireworks exist finally .
 //
 void setup() {
   //size(800, 1000); //Landscape for testing
   fullScreen();
+  noStroke () ;
+  println ( "EXIST") ;
   display();
   //
   color colourBackground = 0 ;
