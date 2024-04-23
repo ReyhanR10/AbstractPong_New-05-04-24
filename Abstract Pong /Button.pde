@@ -1,21 +1,38 @@
-abstract class Button extends Rectangle {
-  //
-  //
-  Button ( float x, float y, float w, float h, color c) {
-    super ( x, y, w, h, c ) ;
-    
-  } //END BUTTON CONTSTRUCTOR
-  //
-  //Methods 
-  abstract void draw () ;
-  //
-  /*
-  -QUIT exit () ;
-  -RESTART BUTTON  ; reset starting Pong Variables
-  -PLAYER 1 AND 2, SCREEN saver ( keyboard is overWritten with y-Variables ) ;
-  -Menu ; TBA
-  */
-  
-  
-  
-} //END BUTTON CLASS
+class Button extends Rectangle {
+  //class vars
+  PFont font = createFont("Kailasa", 55);
+  int textSize;
+  String text;
+  color hoverOver;
+
+  Button(String textParameter, int textSizeParameter, color col, float x, float y, float w, float h) {
+    super(col, x, y, w, h);
+    this.text = textParameter;
+    this.textSize = textSizeParameter;
+    this.hoverOver = col;
+  }
+
+  //methods
+  void draw() {
+    if (mouseX >= this.x && mouseX <= (this.x + this.w) && mouseY >= this.y && mouseY <= (this.y + this.h)) {
+      this.col = hoverOver;
+    } else {
+      this.col = black;
+    }
+    fill(col);
+    rect(x, y, w, h);
+    fill(defaultCol);
+    fill(white);
+    createText(this.x, this.y, this.w, this.h);
+    fill(defaultCol);
+  }
+
+
+  void createText (float x, float y, float w, float h) {
+    fill(white);
+    textAlign (CENTER, CENTER);
+    textFont(font, textSize);
+    text(text, x, y, w, h);
+    fill(defaultCol);
+  }
+}

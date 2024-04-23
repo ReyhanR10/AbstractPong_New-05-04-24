@@ -1,11 +1,15 @@
 abstract class Rectangle extends Shape {
-  //Global Variables
-  //
-  Rectangle(float x, float y, float w, float h, color c) {
-    super(x, y, w, h, c);
+  // class vars
+  Rectangle(color col, float x, float y, float w, float h) {
+    super(col, x, y, w, h);
   }
-  //
-  //Methods
+
+  //methods
   abstract void draw();
-  //
-} //End Rectangle
+
+  void rectangle() {
+    fill (col);
+    rect(x, y, w, h);
+    fill(defaultCol);
+  }
+}

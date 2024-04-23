@@ -1,26 +1,23 @@
-abstract class Paddle extends Rectangle {
-  //Global Variables
-  Boolean top, down ;
-  float speedPaddle ;
-  float tableX, tableY, tableWidth, tableHeight ;
-  //
-  Paddle ( float x, float y, float w, float h, color c) {
-    super ( x, y, w, h, c ) ;
+class Paddle extends Rectangle {
+  //class vars
+  Boolean up, down;
+  float paddleSpeed;
+  float tablex, tabley, tablew, tableh;
 
-    //Movement Of Paddles
-
-    speedPaddle = 10 ;
-    this.top = false ;
-    this.down = false ;
+  Paddle(color col, float x, float y, float w, float h) {
+    super(col, x, y, w, h);
+    paddleSpeed = 9;
+    this.up = false;
+    this.down = false;
+    //add gravity - dictates firework move physics.
   }
 
-  //Paddle Methods
-  void draw () {
-    //Sketch LOL
-    fill ( c ) ;
-    rect ( x, y, w, h ) ;
-    fill ( 0 ) ;
-    if (top == true) {
+  //methods
+  void draw() {
+    rectangle();
+
+
+    if (up == true) {
       movePaddleUp();
     }
     if (down == true) {
@@ -29,32 +26,33 @@ abstract class Paddle extends Rectangle {
   }
 
   void movePaddleUp() {
-    y -= speedPaddle;
-    if (y < tableY) { //>??????????
-      y = tableY;
+    y -= paddleSpeed;
+    if (y < tabley) { //error catch
+      y = tabley;
     }
   }
 
   void movePaddleDown() {
-    y += speedPaddle;
-    if ((y + h) > (tableY + tableHeight)) {
-      y = ((tableY + tableHeight) - h);
+    y += paddleSpeed;
+    if ((y + h) > (tabley + tableh)) {
+      y = ((tabley + tableh) - h);
     }
   }
-   void tableUpdate(float tablexParameter, float tableyParameter, float tablewParameter, float tablehParameter) {
-    tableX = tablexParameter;
-    tableY = tableyParameter;
-    tableWidth = tablewParameter;
-    tableHeight = tablehParameter;
+
+  void tableUpdate(float tablexParameter, float tableyParameter, float tablewParameter, float tablehParameter) {
+    tablex = tablexParameter;
+    tabley = tableyParameter;
+    tablew = tablewParameter;
+    tableh = tablehParameter;
   }
 
   void keyPressedWASD() {
     if (key == 'w' || key == 'W') {
       down = false;
-      top = true;
+      up = true;
     }
     if ( key == 's' || key == 'S') {
-      top = false;
+      up = false;
       down = true;
     }
   }
@@ -62,17 +60,17 @@ abstract class Paddle extends Rectangle {
   void keyPressedARROW() {
     if (key == CODED && keyCode == UP) {
       down = false;
-      top = true;
+      up = true;
     }
     if (key == CODED && keyCode == DOWN) {
-      top = false;
+      up = false;
       down = true;
     }
   }
-}
-void keyReleasedWASD() {
+
+  void keyReleasedWASD() {
     if (key == 'w' || key == 'W') {
-      top = false ;
+      up = false;
     }
     if (key == 's' || key == 'S') {
       down = false;
@@ -81,9 +79,14 @@ void keyReleasedWASD() {
 
   void keyReleasedARROW() {
     if (key == CODED && keyCode == UP) {
-      top = false;
+      up = false;
     }
     if (key == CODED && keyCode == DOWN) {
       down = false;
     }
   }
+}
+
+//RESP:::
+//GIVE X, Y, W, H to BALL
+//

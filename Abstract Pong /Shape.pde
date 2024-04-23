@@ -1,24 +1,25 @@
 abstract class Shape {
-  //Global Variables
-  float x; //X-Variable, Position
-  float y; //Y-Variable, Position
-  float w; //Width
-  float h; //Height
-  color c, rd; //Shape Colour
-  //
-  //Constructor
-  Shape(float x, float y, float w, float h, color c) {
+  //class vars
+  float x, y, w, h;
+  color col, defaultCol;
+
+  Shape(color col, float x, float y, float w, float h) {
+    this.col = col;
     this.x = x;
     this.y = y;
     this.w = w;
     this.h = h;
-    this.c = c;
-    rd = backgroundColour();
-  } //End Constructor
-  //
-  //Methods
-  abstract void draw(); //Empty draw()
-  //
-  //abstract color backgroundColour(); //End Night Mode Colour Selector
-  //
-} //End Shape
+    defaultCol = 0; //nightModeCol();
+  }
+
+
+
+  //methods
+  abstract void draw();
+
+
+  /* color nightModeCol() { ---------- potential nightMode...
+   color nm = 0;
+   return nm;
+   }*/
+}

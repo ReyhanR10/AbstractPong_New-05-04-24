@@ -1,17 +1,20 @@
 abstract class Circle extends Shape {
-  //Global Variables
-  //
-  Circle (float x, float y, float w, float h, color c) {
-    super(x, y, w, h, c);
-  } //End Circle
-  //
-  //Methods
-  void draw() {
-    fill(c);
+  // class vars
+  Circle(color col, float x, float y, float w, float h) {
+    super(col, x, y, w, h);
+  }
+
+  //methods
+  abstract void draw();
+
+  void ball() {
+    fill (col);
     ellipse(x, y, w, h);
-    fill(rd);
-  } //End draw
-  //
-  abstract color backgroundColour(); //End Night Mode Colour Selector
-  //
-} // End Circle
+    fill(defaultCol);
+  }
+
+  /* color nightModeCol() { ---------- potential nightMode...
+   color nm = 0;
+   return nm;
+   }*/
+}
