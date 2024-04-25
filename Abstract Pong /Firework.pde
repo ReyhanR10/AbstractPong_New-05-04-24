@@ -1,4 +1,4 @@
-class Fireworks extends Ball {
+class Fireworks extends Baller {
   //class vars
   float gravity;
   int amt = 50;
@@ -48,7 +48,7 @@ class Fireworks extends Ball {
     for (int i=0; i < fx.length; i++) {
       fill(fc[i]);
       ellipse(fx[i], fy[i], fw[i], fw[i]);
-      fill(defaultCol);
+      fill(defaultColor);
     }
     //ball();
 

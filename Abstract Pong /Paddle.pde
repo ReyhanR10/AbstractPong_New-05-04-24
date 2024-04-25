@@ -1,12 +1,12 @@
 class Paddle extends Rectangle {
   //class vars
   Boolean up, down;
-  float paddleSpeed;
+  float paddleSpeedDirection;
   float tablex, tabley, tablew, tableh;
 
   Paddle(color col, float x, float y, float w, float h) {
     super(col, x, y, w, h);
-    paddleSpeed = 9;
+    paddleSpeedDirection = 9;
     this.up = false;
     this.down = false;
     //add gravity - dictates firework move physics.
@@ -26,14 +26,14 @@ class Paddle extends Rectangle {
   }
 
   void movePaddleUp() {
-    y -= paddleSpeed;
+    y -= paddleSpeedDirection;
     if (y < tabley) { //error catch
       y = tabley;
     }
   }
 
   void movePaddleDown() {
-    y += paddleSpeed;
+    y += paddleSpeedDirection;
     if ((y + h) > (tabley + tableh)) {
       y = ((tabley + tableh) - h);
     }

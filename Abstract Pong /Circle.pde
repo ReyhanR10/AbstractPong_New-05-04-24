@@ -10,7 +10,7 @@ abstract class Circle extends Shape {
   void ball() {
     fill (col);
     ellipse(x, y, w, h);
-    fill(defaultCol);
+    fill(defaultColor);
   }
 
   /* color nightModeCol() { ---------- potential nightMode...

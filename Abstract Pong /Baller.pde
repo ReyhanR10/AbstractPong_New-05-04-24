@@ -1,17 +1,17 @@
-class Ball extends Circle {
+class Baller extends Circle {
   //class vars
   PFont font = createFont ("Kailasa", 55);
-  float xStart, yStart, xSpeed, ySpeed, xSpeedChange, ySpeedChange;
+  float startX, startY, xSpeed, ySpeed, xSpeedChange, ySpeedChange;
   float tablex, tabley, tablew, tableh;
   float paddlex, paddley, paddlew, paddleh;
-  Boolean rSide = false;
+  Boolean rightSide = false;
   Boolean paused = false;
   Boolean scoreCondition = false;
 
-  Ball (color col, float x, float y, float w, float h) {
+  Baller (color col, float x, float y, float w, float h) {
     super(col, x, y, w, h);
-    xStart = x;
-    yStart = y;
+    startX = x;
+    startY = y;
     xSpeed = 3*xSpeedChange();
     ySpeed = 3*ySpeedChange();
     xSpeedChange = 1.2; //break bounce physics - change speed
@@ -48,14 +48,14 @@ class Ball extends Circle {
     y += ySpeed * ySpeedChange;
 
     if (x < (tablew*1/2)) {
-      rSide = true;
+      rightSide = true;
     } else {
-      rSide = false;
+      rightSide = false;
     }
   }
 
   void bounce() {
-    if (this.rSide == true) {
+    if (this.rightSide == true) {
       if (this.x < (paddlex + paddlew + (w/2)) && this.y > paddley && this.y < (paddley + paddleh)) {
         if (this.x > paddlex - w) {
           this.x = (paddlex + paddlew + (w/2));
@@ -81,22 +81,22 @@ class Ball extends Circle {
       this.xSpeed *=  -1;
     }
   }
-
+  //Pause Button Code RUNNING WELL LOL
   void pause() {
     if (paused == true) {
-      this.x = xStart;
-      this.y = yStart;
-      fill(black);
+      this.x = startX ;
+      this.y = startY ;
+      fill(blue );
       rect(0, 0, appWidth, appHeight);
-      fill(defaultCol);
+      fill(defaultColor);
       if (scoreCondition == true) {
-        fill(white);
-        createText("Score! Press SPACE to resume.", 0, 0, appWidth, appHeight);
-        fill(defaultCol);
+        fill(pink);
+        createText("OKAY U COOKING SOMETHING JUST PRESS SPACE PLEASE", 0, 0, appWidth, appHeight);
+        fill(defaultColor);
       } else {
-        fill(white);
-        createText("New game! Click the mouse and press SPACE to start.", 0, 0, appWidth, appHeight);
-        fill(defaultCol);
+        fill(pink );
+        createText("LOL? THERES NO PONG FOR U BUD!", 0, 0, appWidth, appHeight);
+        fill(defaultColor);
       }
     }
   }
@@ -109,7 +109,7 @@ class Ball extends Circle {
   }
 
   void paddleUpdate(float rpaddlexParameter, float lpaddlexParameter, float rpaddleyParameter, float lpaddleyParameter, float rpaddlewParameter, float lpaddlewParameter, float rpaddlehParameter, float lpaddlehParameter) {
-    if (rSide == true) {
+    if (rightSide == true) {
       paddlex = rpaddlexParameter;
       paddley = rpaddleyParameter;
       paddlew = rpaddlewParameter;
@@ -127,8 +127,8 @@ class Ball extends Circle {
 
     paused = true;
     scoreCondition = true;
-    this.x = xStart;
-    this.y = yStart;
+    this.x = startX ;
+    this.y = startY ;
     this.xSpeed *= xSpeedChange();
     this.ySpeed *= ySpeedChange();
   }
@@ -141,11 +141,11 @@ class Ball extends Circle {
     }
   }
   void createText (String text, float x, float y, float w, float h) {
-    fill(white);
+    fill(pink);
     textAlign (CENTER, CENTER);
     textFont(font, 40);
     text(text, x, y, w, h);
-    fill(defaultCol);
+    fill(defaultColor);
   }
 }
 

@@ -10,6 +10,6 @@ abstract class Rectangle extends Shape {
   void rectangle() {
     fill (col);
     rect(x, y, w, h);
-    fill(defaultCol);
+    fill(defaultColor);
   }
 }

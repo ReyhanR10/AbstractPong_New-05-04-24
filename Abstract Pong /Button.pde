@@ -17,22 +17,22 @@ class Button extends Rectangle {
     if (mouseX >= this.x && mouseX <= (this.x + this.w) && mouseY >= this.y && mouseY <= (this.y + this.h)) {
       this.col = hoverOver;
     } else {
-      this.col = black;
+      this.col = black ;
     }
     fill(col);
     rect(x, y, w, h);
-    fill(defaultCol);
+    fill(defaultColor);
     fill(white);
     createText(this.x, this.y, this.w, this.h);
-    fill(defaultCol);
+    fill(defaultColor);
   }
 
 
   void createText (float x, float y, float w, float h) {
-    fill(white);
+    fill(pink);
     textAlign (CENTER, CENTER);
     textFont(font, textSize);
     text(text, x, y, w, h);
-    fill(defaultCol);
+    fill(defaultColor);
   }
 }

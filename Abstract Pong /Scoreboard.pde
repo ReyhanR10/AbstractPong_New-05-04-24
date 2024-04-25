@@ -14,9 +14,9 @@ class ScoreBoard extends Rectangle {
   //methods
   void draw() {
     rectangle();
-    fill(white);
+    fill(blue);
     createText(this.x, this.y, this.w, this.h);
-    fill(defaultCol);
+    fill(defaultColor);
 
     if (this.inNet == true) {
       scoreUpdate();
@@ -25,7 +25,7 @@ class ScoreBoard extends Rectangle {
   }
 
   void scoreUpdate() {
-    println("score!");
+    println("BUD U COOKING RIGHT NOW +1");
     this.score += 1;
     this.scoreText = str(this.score);
   }
@@ -36,10 +36,10 @@ class ScoreBoard extends Rectangle {
   }
 
   void createText (float x, float y, float w, float h) {
-    fill(white);
+    fill(pink);
     textAlign (CENTER, CENTER);
     textFont(font, 40);
     text(scoreText, x, y, w, h);
-    fill(defaultCol);
+    fill(defaultColor);
   }
 }
