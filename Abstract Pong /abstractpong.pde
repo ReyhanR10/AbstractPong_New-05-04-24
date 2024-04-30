@@ -13,7 +13,7 @@ void setup() {
   //size(800, 1000);
   fullScreen();
   noStroke();
-  println("IntergerHelp");
+  println("HELPPPPPPP");
   display();
 
   if (correctlyOriented == true) {
